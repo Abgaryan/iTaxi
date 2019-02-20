@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">iTaxi</string>
+    <string name="title_activity_main">iTaxi</string>
+    <string name="dialog_message_error">Ops something went wrong.</string>
+    <string name="fleet_type">FleetType : %s</string>
+    <string name="fleet_id">POI id : %d </string>
+</resources>

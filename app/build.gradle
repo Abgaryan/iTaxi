@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+project.ext {
+    appcompat = "1.1.0-alpha01"
+    retrofit = "2.5.0"
+    dagger_version = "2.21"
+    butter_knife = "10.0.0"
+    rx_java = "2.2.5"
+    rx_android = "2.1.0"
+    support = "1.0.0"
+    junit = "4.12"
+    runner = "1.1.1"
+    espresso_core = "3.1.1"
+    rxjava2_adapter = "1.0.0"
+    play_services_maps = "16.0.0"
+    mockito = "2.6.2"
+    mockwebserver  = "3.10.0"
+
+}
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "taxi.com.taxi.itaxi"
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+
+
+android.applicationVariants.all {
+    def aptOutputDir = new File(buildDir, "generated/source/apt/${it.unitTestVariant.dirName}")
+    it.unitTestVariant.addJavaSourceFoldersToModel(aptOutputDir)
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$project.appcompat"
+    implementation "androidx.legacy:legacy-support-v4:$project.support"
+    implementation "androidx.recyclerview:recyclerview:$project.support"
+    implementation "androidx.cardview:cardview:$project.support"
+    implementation "com.google.android.gms:play-services-maps:$project.play_services_maps"
+
+    // Rx java
+    implementation "io.reactivex.rxjava2:rxjava:$project.rx_java"
+    implementation "io.reactivex.rxjava2:rxandroid:$project.rx_android"
+
+    // Butter knife
+    implementation "com.jakewharton:butterknife:$project.butter_knife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$project.butter_knife"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$project.rxjava2_adapter"
+
+    // Dagger
+    annotationProcessor "com.google.dagger:dagger-android-processor:$project.dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$project.dagger_version"
+    implementation "com.google.dagger:dagger:$project.dagger_version"
+    implementation "com.google.dagger:dagger-android:$project.dagger_version"
+
+
+    // Mockito
+    testImplementation "org.mockito:mockito-core:$project.mockito"
+    androidTestImplementation "org.mockito:mockito-core:$project.mockito"
+    androidTestImplementation "org.mockito:mockito-android:$project.mockito"
+
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$project.dagger_version"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$project.dagger_version"
+
+    testImplementation "com.squareup.okhttp3:mockwebserver:$project.mockwebserver"
+
+    testImplementation "junit:junit:$project.junit"
+    androidTestImplementation "androidx.test:runner:$project.runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$project.espresso_core"
+
+}
