@@ -24,6 +24,6 @@ before_script:
 # - adb shell input keyevent 82 &
 script:
 - ./gradlew build --stacktrace
-- ./gradlew test
+- ./gradlew test --stacktrace
 
 
