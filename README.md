@@ -1,11 +1,10 @@
-# Android Candidate Test (Applicant Coding Challenge)
 
 ## Task 1: Loading data and displaying it
 
 Write an app containing a list. The list should show all the vehicle data in the bounds of Hamburg (53.694865,
 9.757589 & 53.394655, 10.099891).
 
-Use this endpoint to get the vehicles: https://fake-poi-api.mytaxi.com/?p1Lat={Latitude1}&p1Lon={Longitude1}&p2Lat={Latitude2}&p2Lon={Longit
+Use this endpoint to get the vehicles: https://fake-poi-api.itaxi.com/?p1Lat={Latitude1}&p1Lon={Longitude1}&p2Lat={Latitude2}&p2Lon={Longit
 ude2}
 
 Example of a response:
@@ -44,9 +43,7 @@ Example of a response:
 ]
 }
 ```
-Fill the list items with some useful vehicle-information provided by the JSON response. You can create custom list items with selected vehicle
-data - simply impress us
-
+Fill the list items with some useful vehicle-information provided by the JSON response.
 
 
 
